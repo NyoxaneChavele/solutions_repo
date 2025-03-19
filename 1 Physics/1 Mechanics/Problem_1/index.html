@@ -172,7 +172,107 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>Hello</p>
+<p>import numpy as np
+import matplotlib.pyplot as plt
+import io
+import base64</p>
+<h1 id="projectile-motion-analysis">## Projectile Motion Analysis</h1>
+<h1 id="this-script-computes-and-visualizes-the-range-maximum-height-and-time-of-flight-of-a-projectile-based-on-its-launch-angle">This script computes and visualizes the range, maximum height, and time of flight of a projectile based on its launch angle.</h1>
+<h1 id="importing-required-libraries">### Importing Required Libraries</h1>
+<h1 id="we-use-numpy-for-calculations-and-matplotlib-for-plotting">We use NumPy for calculations and Matplotlib for plotting.</h1>
+<h1 id="function-to-compute-projectile-motion-parameters">### Function to Compute Projectile Motion Parameters</h1>
+<p>def projectile_motion(theta, v0, g=9.81):
+    """Computes the range, max height, and time of flight of a projectile given launch angle theta (degrees), 
+    initial velocity v0, and gravity g."""
+    theta_rad = np.radians(theta)  # Convert angle to radians
+    range_ = (v0<strong>2 * np.sin(2 * theta_rad)) / g
+    max_height = (v0</strong>2 * (np.sin(theta_rad))**2) / (2 * g)
+    time_of_flight = (2 * v0 * np.sin(theta_rad)) / g
+    return range_, max_height, time_of_flight</p>
+<h1 id="defining-parameters">### Defining Parameters</h1>
+<p>v0 = 20  # Initial velocity in m/s
+theta_values = np.linspace(0, 90, 100)  # Angles from 0 to 90 degrees
+ranges, heights, times = zip(*[projectile_motion(theta, v0) for theta in theta_values])</p>
+<h1 id="generating-the-plot">### Generating the Plot</h1>
+<p>def generate_plot():
+    fig, ax = plt.subplots()
+    ax.plot(theta_values, ranges, label='Range (m)', color='b')
+    ax.plot(theta_values, heights, label='Max Height (m)', color='r')
+    ax.plot(theta_values, times, label='Time of Flight (s)', color='g')
+    ax.set_xlabel('Angle of Projection (degrees)')
+    ax.set_ylabel('Values')
+    ax.set_title('Projectile Motion Analysis')
+    ax.legend()
+    ax.grid()</p>
+<pre><code>img = io.BytesIO()
+plt.savefig(img, format='png')
+img.seek(0)
+plt.close(fig)
+return base64.b64encode(img.getvalue()).decode()
+</code></pre>
+<h1 id="output-results">### Output Results</h1>
+<p>def generate_report():
+    """Generates a Markdown report with results and a base64-encoded plot."""
+    plot_data = generate_plot()
+    report = f"""</p>
+<h1 id="projectile-motion-analysis_1">Projectile Motion Analysis</h1>
+<p>This report analyzes the projectile motion based on different launch angles. The results include:</p>
+<ul>
+<li><strong>Range</strong>: Distance traveled before hitting the ground.</li>
+<li><strong>Maximum Height</strong>: The highest point reached by the projectile.</li>
+<li><strong>Time of Flight</strong>: The total duration before landing.</li>
+</ul>
+<h2 id="computed-data">Computed Data:</h2>
+<table>
+<thead>
+<tr>
+<th>Angle (degrees)</th>
+<th>Range (m)</th>
+<th>Max Height (m)</th>
+<th>Time of Flight (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"""</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>for theta, r, h, t in zip(theta_values, ranges, heights, times):</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>report += f"</td>
+<td>{theta:.1f}</td>
+<td>{r:.2f}</td>
+<td>{h:.2f}</td>
+</tr>
+<tr>
+<td>"</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>report += """</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="visualization">Visualization:</h2>
+<p><img alt="Projectile Motion Plot" src="data:image/png;base64,{plot_data}"/>
+    """
+    return report</p>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+    with open("projectile_motion_report.md", "w") as f:
+        f.write(generate_report())
+    print("Report saved as projectile_motion_report.md")</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
