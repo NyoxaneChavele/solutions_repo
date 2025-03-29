@@ -13,10 +13,7 @@ This report aims to explain the significance of these velocities, analyze their 
 - Also known as the orbital velocity, the first cosmic velocity (​$v_1$​) is the minimum speed an object must have to maintain a stable circular orbit around a celestial body without propulsion.
 - It is derived from the balance between gravitational force and the centripetal force required for circular motion:
   
-  **import math
-
-def orbital_velocity(G, M, R):
-    return math.sqrt(G * M / R)**
+  \( v_1 = \sqrt{\frac{GM}{R}} \)
   
   where:
   - \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \) m³/kg/s²),
@@ -35,7 +32,7 @@ def orbital_velocity(G, M, R):
 - The third cosmic velocity (​$v_3$​) is the velocity required to leave a star system (e.g., the Solar System) entirely.
 - It depends on the Sun’s gravitational influence and the body's initial position within the system:
   
-  \[ v_3 = \sqrt{v_2^2 + v_s^2} \]
+  \( v_3 = \sqrt{v_2^2 + v_s^2} \)
   
   where \( v_s \) is the orbital velocity of the planet around the Sun.
 
