@@ -1,4 +1,4 @@
-# Problem 2
+# Problem 1
 # The Range of a Projectile as a Function of the Angle of Projection
 
 ## 1. Introduction
