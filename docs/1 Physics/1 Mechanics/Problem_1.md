@@ -1,3 +1,4 @@
+# Problem 2
 # The Range of a Projectile as a Function of the Angle of Projection
 
 ## 1. Introduction
@@ -102,4 +103,4 @@ Future work:
 - Accounting for varying launch and landing heights.
 
 ## 8. Conclusion
-Projectile range depends on launch angle, velocity, and gravitational acceleration. The ideal maximum range occurs at 45°, but real-world conditions modify this. Computational simulations enhance understanding, and further research can incorporate more realistic factors.
+Projectile range depends on launch angle, velocity, and gravitational acceleration. The ideal maximum range occurs at 45°, but real-world conditions modify this. Computational simulations enhance understanding, and further research can incorporate more realistic factors
