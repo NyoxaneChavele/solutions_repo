@@ -92,6 +92,7 @@ Using Python with `NumPy` and `Matplotlib`, we can simulate projectile motion an
 - \( y = v_0 \sin\theta t - \frac{1}{2} g t^2 \)
 
 For each launch angle (0° to 90°), compute the range and visualize how different velocities affect projectile motion.
+![alt text](image.png)
 
 ## 7. Limitations and Future Work
 Ideal models ignore:
