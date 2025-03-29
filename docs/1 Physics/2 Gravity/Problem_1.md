@@ -71,31 +71,8 @@ This confirms the universal validity of Kepler’s law.
 
 ## 5. Computational Simulation
 To visualize this relationship, we implement a Python simulation using **Matplotlib** and **NumPy**. The program calculates and plots the orbit of a body based on initial conditions.
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Constants (assuming Earth-Sun system)
-G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-M_sun = 1.989e30  # Mass of the Sun (kg)
-AU = 1.496e11  # 1 Astronomical Unit (m)
-
-# Orbital properties
-radii = np.linspace(0.1, 5, 100) * AU  # Orbital radii in meters
-periods = np.sqrt((4 * np.pi**2 * radii**3) / (G * M_sun))  # Orbital periods (s)
-periods_years = periods / (60 * 60 * 24 * 365)  # Convert to years
-
-# Plotting
-plt.figure(figsize=(8,6))
-plt.plot(radii / AU, periods_years**2, label='$T^2$ vs $r^3$', color='b')
-plt.xlabel('Orbital Radius (AU)')
-plt.ylabel('Orbital Period Squared (Years²)')
-plt.title('Kepler’s Third Law Simulation')
-plt.legend()
-plt.grid()
-plt.show()
-```
+![alt text][def]
+<a href="https://colab.research.google.com/drive/1yb2VWrmBY-BJRZOSQ39ojd1j9c9MpJkr?usp=sharing" target="_blank">Colab</a>
 
 This graph confirms the linear relationship between \( T^2 \) and \( r^3 \), validating Kepler’s law computationally.
 
@@ -113,3 +90,6 @@ Kepler’s Third Law elegantly bridges classical mechanics with real-world astro
 
 **Keywords:** Kepler’s Third Law, Orbital Mechanics, Celestial Motion, Computational Simulation, Astronomy.
 
+
+
+[def]: image.png
