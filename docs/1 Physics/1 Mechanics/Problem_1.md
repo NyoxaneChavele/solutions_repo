@@ -93,7 +93,7 @@ Using Python with `NumPy` and `Matplotlib`, we can simulate projectile motion an
 
 For each launch angle (0° to 90°), compute the range and visualize how different velocities affect projectile motion.
 ![**alt text**](image.png)
-
+![**alt text**](image-1.png)
 ## 7. Limitations and Future Work
 Ideal models ignore:
 - Air resistance, wind, and varying gravity.
