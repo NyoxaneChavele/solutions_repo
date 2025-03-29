@@ -93,7 +93,7 @@ Using Python with `NumPy` and `Matplotlib`, we can simulate projectile motion an
 
 For each launch angle (0° to 90°), compute the range and visualize how different velocities affect projectile motion.
 ![**alt text**](image.png)
-![**alt text**](image-1.png)
+![**alt text**][def]
 ## 7. Limitations and Future Work
 Ideal models ignore:
 - Air resistance, wind, and varying gravity.
@@ -105,3 +105,6 @@ Future work:
 
 ## 8. Conclusion
 Projectile range depends on launch angle, velocity, and gravitational acceleration. The ideal maximum range occurs at 45°, but real-world conditions modify this. Computational simulations enhance understanding, and further research can incorporate more realistic factors
+
+
+[def]: image-1.png
