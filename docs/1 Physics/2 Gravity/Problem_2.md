@@ -13,7 +13,10 @@ This report aims to explain the significance of these velocities, analyze their 
 - Also known as the orbital velocity, the first cosmic velocity (​$v_1$​) is the minimum speed an object must have to maintain a stable circular orbit around a celestial body without propulsion.
 - It is derived from the balance between gravitational force and the centripetal force required for circular motion:
   
-  \[ v_1 = \sqrt{\frac{GM}{R}} \]
+  **import math
+
+def orbital_velocity(G, M, R):
+    return math.sqrt(G * M / R)**
   
   where:
   - \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \) m³/kg/s²),
@@ -24,7 +27,7 @@ This report aims to explain the significance of these velocities, analyze their 
 - The second cosmic velocity (​$v_2$​) is the minimum speed needed to break free from a celestial body's gravitational pull without further propulsion.
 - Derived from energy conservation (where kinetic energy equals gravitational potential energy at infinity):
   
-  \[ v_2 = \sqrt{2GM/R} \]
+  \( v_2 = \sqrt{2GM/R} \)
   
   - It is always \( \sqrt{2} \) times the first cosmic velocity.
 
