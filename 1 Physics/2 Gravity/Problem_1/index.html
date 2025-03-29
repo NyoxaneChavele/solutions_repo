@@ -251,30 +251,9 @@
 </table>
 <p>This confirms the universal validity of Kepler’s law.</p>
 <h2 id="5-computational-simulation">5. Computational Simulation</h2>
-<p>To visualize this relationship, we implement a Python simulation using <strong>Matplotlib</strong> and <strong>NumPy</strong>. The program calculates and plots the orbit of a body based on initial conditions.</p>
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-
-# Constants (assuming Earth-Sun system)
-G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-M_sun = 1.989e30  # Mass of the Sun (kg)
-AU = 1.496e11  # 1 Astronomical Unit (m)
-
-# Orbital properties
-radii = np.linspace(0.1, 5, 100) * AU  # Orbital radii in meters
-periods = np.sqrt((4 * np.pi**2 * radii**3) / (G * M_sun))  # Orbital periods (s)
-periods_years = periods / (60 * 60 * 24 * 365)  # Convert to years
-
-# Plotting
-plt.figure(figsize=(8,6))
-plt.plot(radii / AU, periods_years**2, label='$T^2$ vs $r^3$', color='b')
-plt.xlabel('Orbital Radius (AU)')
-plt.ylabel('Orbital Period Squared (Years²)')
-plt.title('Kepler’s Third Law Simulation')
-plt.legend()
-plt.grid()
-plt.show()
-</code></pre>
+<p>To visualize this relationship, we implement a Python simulation using <strong>Matplotlib</strong> and <strong>NumPy</strong>. The program calculates and plots the orbit of a body based on initial conditions.
+<img alt="alt text" src="../image.png"/>
+<a href="https://colab.research.google.com/drive/1yb2VWrmBY-BJRZOSQ39ojd1j9c9MpJkr?usp=sharing" target="_blank">Colab</a></p>
 <p>This graph confirms the linear relationship between <span class="arithmatex">\( T^2 \)</span> and <span class="arithmatex">\( r^3 \)</span>, validating Kepler’s law computationally.</p>
 <h2 id="6-extension-to-elliptical-orbits">6. Extension to Elliptical Orbits</h2>
 <p>While Kepler’s law is derived for circular orbits, it extends to elliptical orbits by considering the <strong>semi-major axis</strong> <span class="arithmatex">\( a \)</span> instead of <span class="arithmatex">\( r \)</span>:</p>
