@@ -172,6 +172,101 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum"><strong>Investigating the Dynamics of a Forced Damped Pendulum</strong></h1>
+<h2 id="introduction-motivation">** Introduction &amp; Motivation**</h2>
+<p>The <strong>forced damped pendulum</strong> is a fascinating example of how simple physical systems can exhibit highly complex behavior. By introducing both <strong>damping</strong> and an <strong>external periodic force</strong>, this system transitions from predictable harmonic motion to intricate dynamics such as <strong>resonance, quasiperiodic oscillations, and even chaos</strong>.  </p>
+<p>Understanding these behaviors is crucial for various real-world applications, from <strong>mechanical oscillators</strong> and <strong>bridge dynamics</strong> to <strong>biomechanics</strong> and <strong>electrical circuits</strong>. This report delves into the governing equations, solutions, and computational simulations to explore the pendulum's rich dynamical landscape.  </p>
+<h2 id="theoretical-foundation">** Theoretical Foundation**</h2>
+<h3 id="governing-equation">** Governing Equation**</h3>
+<p>The motion of a forced damped pendulum is governed by the <strong>second-order nonlinear differential equation</strong>:  </p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin\theta = A \cos(\omega t)
+\]</div>
+<p>where:<br/>
+- <span class="arithmatex">\(\theta\)</span> is the angular displacement,<br/>
+- <span class="arithmatex">\(b\)</span> is the damping coefficient,<br/>
+- <span class="arithmatex">\(g\)</span> is the acceleration due to gravity,<br/>
+- <span class="arithmatex">\(L\)</span> is the length of the pendulum,<br/>
+- <span class="arithmatex">\(A\)</span> is the amplitude of the external forcing, and<br/>
+- <span class="arithmatex">\(\omega\)</span> is the driving frequency.  </p>
+<h3 id="small-angle-approximation">** Small-Angle Approximation**</h3>
+<p>For small angles (<span class="arithmatex">\(\theta \approx 0\)</span>), we approximate <strong><span class="arithmatex">\(\sin\theta \approx \theta\)</span></strong>, simplifying the equation to:  </p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \theta = A \cos(\omega t)
+\]</div>
+<p>This approximation allows analytical solutions, but for <strong>larger angles and chaotic behavior</strong>, numerical methods are required.  </p>
+<h2 id="analysis-of-dynamics">** Analysis of Dynamics**</h2>
+<h3 id="effect-of-damping-driving-forces">** Effect of Damping &amp; Driving Forces**</h3>
+<ul>
+<li><strong>Low damping</strong> (<span class="arithmatex">\(b \approx 0\)</span>) → Near-harmonic motion, with oscillations resembling a simple pendulum.  </li>
+<li><strong>High damping</strong> (<span class="arithmatex">\(b \gg 1\)</span>) → Motion dies out quickly unless sustained by the external force.  </li>
+<li><strong>Varying driving amplitude <span class="arithmatex">\(A\)</span> and frequency <span class="arithmatex">\(\omega\)</span></strong> leads to <strong>resonance</strong> or <strong>chaotic motion</strong>.  </li>
+</ul>
+<h3 id="regular-vs-chaotic-motion"><strong>Regular vs. Chaotic Motion</strong></h3>
+<p>By systematically varying parameters, we observe:<br/>
+- <strong>Regular Motion:</strong> Predictable oscillations at low forcing amplitudes.<br/>
+- <strong>Chaotic Motion:</strong> Sensitive dependence on initial conditions, leading to <strong>unpredictable long-term behavior</strong>.  </p>
+<p>A deeper look at these transitions requires <strong>phase portraits</strong> and <strong>Poincaré sections</strong>, which we analyze computationally.  </p>
+<h2 id="practical-applications">** Practical Applications**</h2>
+<p>The forced damped pendulum is not just a theoretical construct—it has <strong>real-world significance</strong>, including:<br/>
+- <strong>Energy Harvesting</strong>: Capturing oscillatory energy for sustainable power solutions.<br/>
+- <strong>Bridge Dynamics</strong>: Preventing resonance-induced collapses (e.g., Tacoma Narrows Bridge).<br/>
+- <strong>Biomechanics</strong>: Modeling human gait and posture control.<br/>
+- <strong>Electronics</strong>: Analogous to <strong>driven RLC circuits</strong>, influencing circuit resonance and stability.  </p>
+<h2 id="implementation-simulations">** Implementation &amp; Simulations**</h2>
+<p>To visualize the pendulum’s motion under different conditions, we implement a <strong>numerical simulation using Python</strong> with the <strong>Runge-Kutta method</strong>.  </p>
+<h3 id="python-code-for-simulation">** Python Code for Simulation**</h3>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Define system parameters
+b = 0.5     # Damping coefficient
+A = 1.2     # Driving force amplitude
+omega = 2.0 # Driving frequency
+g = 9.81    # Gravity
+L = 1.0     # Pendulum length
+
+# Define the differential equation
+def pendulum_eq(t, y):
+    theta, omega_t = y
+    dtheta_dt = omega_t
+    domega_dt = -b * omega_t - (g/L) * np.sin(theta) + A * np.cos(omega * t)
+    return [dtheta_dt, domega_dt]
+
+# Initial conditions
+y0 = [0.2, 0.0]  # Small initial angle, no initial velocity
+t_span = (0, 50) # Time span
+t_eval = np.linspace(t_span[0], t_span[1], 1000)
+
+# Solve the ODE
+solution = solve_ivp(pendulum_eq, t_span, y0, t_eval=t_eval, method='RK45')
+
+# Plot the results
+plt.figure(figsize=(10,5))
+plt.plot(solution.t, solution.y[0], label="Theta (angle)")
+plt.xlabel("Time (s)")
+plt.ylabel("Angular Displacement (rad)")
+plt.title("Forced Damped Pendulum Motion")
+plt.legend()
+plt.grid()
+plt.show()
+</code></pre>
+<h2 id="advanced-visualization-techniques">** Advanced Visualization Techniques**</h2>
+<h3 id="61-phase-portraits"><strong>6.1 Phase Portraits</strong></h3>
+<p>Plotting <strong>angular velocity vs. displacement</strong> to observe stable and chaotic regimes.  </p>
+<pre><code class="language-python">plt.figure(figsize=(8,5))
+plt.plot(solution.y[0], solution.y[1], label="Phase Portrait")
+plt.xlabel("Theta (rad)")
+plt.ylabel("Angular Velocity (rad/s)")
+plt.title("Phase Portrait of Forced Damped Pendulum")
+plt.legend()
+plt.grid()
+plt.show()
+</code></pre>
+<h2 id="conclusion">** Conclusion**</h2>
+<p>The <strong>forced damped pendulum</strong> is a rich and complex system, revealing fascinating physics principles, from <strong>resonance</strong> to <strong>chaos</strong>. By understanding its behavior through <strong>mathematical models</strong> and <strong>computational simulations</strong>, we gain insight into numerous engineering and natural phenomena.  </p>
+<p>Further explorations, such as <strong>nonlinear damping</strong> and <strong>bifurcation studies</strong>, will deepen our understanding of <strong>complex dynamical systems</strong>, bridging theoretical physics and real-world applications.  </p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
