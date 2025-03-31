@@ -101,7 +101,7 @@ plt.show()
 
 ## **Advanced Visualization Techniques**  
 
-### **6.1 Phase Portraits**  
+### **Phase Portraits**  
 Plotting **angular velocity vs. displacement** to observe stable and chaotic regimes.  
 
 
