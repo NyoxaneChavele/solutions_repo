@@ -97,15 +97,44 @@ plt.legend()
 plt.grid()
 plt.show()
 ```
+<a href="https://colab.research.google.com/drive/1ED2QsXcYoWrW_lvZAib4xwUUv1mC7xLr?usp=sharing" target="_blank">Colab</a>
 
 ## **Advanced Visualization Techniques**  
 
 ### **6.1 Phase Portraits**  
 Plotting **angular velocity vs. displacement** to observe stable and chaotic regimes.  
 
+
 ```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Define system parameters
+b = 0.5     # Damping coefficient
+A = 1.2     # Driving force amplitude
+omega = 2.0 # Driving frequency
+g = 9.81    # Gravity
+L = 1.0     # Pendulum length
+
+# Define the differential equation
+def pendulum_eq(t, y):
+    theta, omega_t = y
+    dtheta_dt = omega_t
+    domega_dt = -b * omega_t - (g/L) * np.sin(theta) + A * np.cos(omega * t)
+    return [dtheta_dt, domega_dt]
+
+# Initial conditions
+y0 = [0.2, 0.0]  # Small initial angle, no initial velocity
+t_span = (0, 50) # Time span
+t_eval = np.linspace(t_span[0], t_span[1], 1000)
+
+# Solve the ODE
+solution = solve_ivp(pendulum_eq, t_span, y0, t_eval=t_eval, method='RK45')
+
+# Plot the phase portrait (Angular Displacement vs. Angular Velocity)
 plt.figure(figsize=(8,5))
-plt.plot(solution.y[0], solution.y[1], label="Phase Portrait")
+plt.plot(solution.y[0], solution.y[1], label="Phase Portrait", color='b')
 plt.xlabel("Theta (rad)")
 plt.ylabel("Angular Velocity (rad/s)")
 plt.title("Phase Portrait of Forced Damped Pendulum")
@@ -113,6 +142,8 @@ plt.legend()
 plt.grid()
 plt.show()
 ```
+<a href="https://colab.research.google.com/drive/1Cx_G-OY7GYAVLQc-2ec-hNH3yvQdIdBa?usp=sharing" target="_blank">Colab</a>
+
 
 ## **Conclusion**  
 
