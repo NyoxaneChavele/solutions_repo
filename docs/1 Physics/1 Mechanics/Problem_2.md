@@ -1,14 +1,14 @@
 # Problem 2
 # **Investigating the Dynamics of a Forced Damped Pendulum**  
 
-## ** Introduction & Motivation**  
+## **Introduction & Motivation**  
 The **forced damped pendulum** is a fascinating example of how simple physical systems can exhibit highly complex behavior. By introducing both **damping** and an **external periodic force**, this system transitions from predictable harmonic motion to intricate dynamics such as **resonance, quasiperiodic oscillations, and even chaos**.  
 
 Understanding these behaviors is crucial for various real-world applications, from **mechanical oscillators** and **bridge dynamics** to **biomechanics** and **electrical circuits**. This report delves into the governing equations, solutions, and computational simulations to explore the pendulum's rich dynamical landscape.  
 
-## ** Theoretical Foundation**  
+## **Theoretical Foundation**  
 
-### ** Governing Equation**  
+### **Governing Equation**  
 The motion of a forced damped pendulum is governed by the **second-order nonlinear differential equation**:  
 
 $$
@@ -23,7 +23,7 @@ where:
 - $A$ is the amplitude of the external forcing, and  
 - $\omega$ is the driving frequency.  
 
-### ** Small-Angle Approximation**  
+### **Small-Angle Approximation**  
 For small angles ($\theta \approx 0$), we approximate **$\sin\theta \approx \theta$**, simplifying the equation to:  
 
 $$
@@ -32,9 +32,9 @@ $$
 
 This approximation allows analytical solutions, but for **larger angles and chaotic behavior**, numerical methods are required.  
 
-## ** Analysis of Dynamics**  
+## **Analysis of Dynamics**  
 
-### ** Effect of Damping & Driving Forces**  
+### **Effect of Damping & Driving Forces**  
 - **Low damping** ($b \approx 0$) → Near-harmonic motion, with oscillations resembling a simple pendulum.  
 - **High damping** ($b \gg 1$) → Motion dies out quickly unless sustained by the external force.  
 - **Varying driving amplitude $A$ and frequency $\omega$** leads to **resonance** or **chaotic motion**.  
@@ -46,7 +46,7 @@ By systematically varying parameters, we observe:
 
 A deeper look at these transitions requires **phase portraits** and **Poincaré sections**, which we analyze computationally.  
 
-## ** Practical Applications**  
+## **Practical Applications**  
 
 The forced damped pendulum is not just a theoretical construct—it has **real-world significance**, including:  
 - **Energy Harvesting**: Capturing oscillatory energy for sustainable power solutions.  
@@ -54,11 +54,11 @@ The forced damped pendulum is not just a theoretical construct—it has **real-w
 - **Biomechanics**: Modeling human gait and posture control.  
 - **Electronics**: Analogous to **driven RLC circuits**, influencing circuit resonance and stability.  
 
-## ** Implementation & Simulations**  
+## **Implementation & Simulations**  
 
 To visualize the pendulum’s motion under different conditions, we implement a **numerical simulation using Python** with the **Runge-Kutta method**.  
 
-### ** Python Code for Simulation**  
+### **Python Code for Simulation**  
 
 ```python
 import numpy as np
@@ -98,7 +98,7 @@ plt.grid()
 plt.show()
 ```
 
-## ** Advanced Visualization Techniques**  
+## **Advanced Visualization Techniques**  
 
 ### **6.1 Phase Portraits**  
 Plotting **angular velocity vs. displacement** to observe stable and chaotic regimes.  
@@ -114,7 +114,7 @@ plt.grid()
 plt.show()
 ```
 
-## ** Conclusion**  
+## **Conclusion**  
 
 The **forced damped pendulum** is a rich and complex system, revealing fascinating physics principles, from **resonance** to **chaos**. By understanding its behavior through **mathematical models** and **computational simulations**, we gain insight into numerous engineering and natural phenomena.  
 
