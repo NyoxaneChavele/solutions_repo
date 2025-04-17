@@ -21,6 +21,88 @@ The displacement components:
 - \( y = v_0 t \sin\theta - \frac{1}{2} g t^2 \)
 
 Eliminating \( t \) from these equations yields the equation of the trajectory, showing a parabolic path.
+## Differential Equations
+
+## Newton’s Second Law of Motion
+
+**Equation:**
+$$
+F = ma \quad \Rightarrow \quad m\frac{d^2x}{dt^2} = F(x, t)
+$$
+
+- Describes how a force causes acceleration.
+- It's a second-order ordinary differential equation (ODE).
+
+---
+
+## Simple Harmonic Motion (Mass-Spring System)
+
+**Equation:**
+$$
+m\frac{d^2x}{dt^2} + kx = 0
+$$
+
+- Models ideal spring oscillations.
+- General solution: 
+$$
+x(t) = A\cos(\omega t) + B\sin(\omega t), \quad \omega = \sqrt{\frac{k}{m}}
+$$
+
+---
+
+## Damped Harmonic Motion
+
+**Equation:**
+$$
+m\frac{d^2x}{dt^2} + c\frac{dx}{dt} + kx = 0
+$$
+
+- Includes damping (e.g., friction or air resistance).
+- Types:
+  - **Overdamped**
+  - **Critically damped**
+  - **Underdamped**
+
+---
+
+## Forced Damped Oscillator
+
+**Equation:**
+$$
+m\frac{d^2x}{dt^2} + c\frac{dx}{dt} + kx = F_0\cos(\omega t)
+$$
+
+- Oscillator under the influence of an external force.
+- Resonance occurs when driving frequency matches natural frequency.
+
+---
+
+## Projectile Motion with Air Resistance
+
+**Equation:**
+$$
+m\frac{dv}{dt} = -mg - kv
+$$
+
+- Motion under gravity with linear air resistance.
+- Terminal velocity occurs when acceleration = 0.
+
+---
+
+## Pendulum Motion (Nonlinear)
+
+**Exact Equation:**
+$$
+\frac{d^2\theta}{dt^2} + \frac{g}{L}\sin(\theta) = 0
+$$
+
+**Approximation (for small angles):**
+$$
+\frac{d^2\theta}{dt^2} + \frac{g}{L}\theta = 0
+$$
+
+- The full equation is nonlinear.
+- The small-angle version behaves like simple harmonic motion.
 
 ## 3. Analysis of the Range
 The horizontal range \( R \) is the total horizontal distance traveled before returning to \( y = 0 \):
@@ -92,12 +174,105 @@ Using Python with `NumPy` and `Matplotlib`, we can simulate projectile motion an
 - \( y = v_0 \sin\theta t - \frac{1}{2} g t^2 \)
 
 For each launch angle (0° to 90°), compute the range and visualize how different velocities affect projectile motion.
-![**alt text**](image.png)
-![**alt text**][def]
-<a href="https://colab.research.google.com/drive/1pKv0tKUPBN-GFtPi4eybHvgkc8VosqhZ?usp=sharing" target="_blank">Colab</a>
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
 
+### Different Angles,Same Velocity
+![alt text](image-5.png)
 
-## 7. Limitations and Future Work
+## 7.Simple Harmonic Oscillator (Mass-Spring System)
+
+**Equation of Motion:**
+$$
+m\frac{d^2x}{dt^2} + kx = 0
+$$
+
+**Phase Variables:**
+- \( x \): displacement
+- \( v = \frac{dx}{dt} \): velocity
+
+**Phase Diagram:**
+- The trajectory is an **ellipse** in the \( x \)-\( v \) space.
+- Energy is conserved.
+- Shape depends on mass \( m \) and spring constant \( k \).
+
+---
+
+### Damped Harmonic Oscillator
+
+**Equation:**
+$$
+m\frac{d^2x}{dt^2} + c\frac{dx}{dt} + kx = 0
+$$
+
+**Phase Diagram:**
+- **Spiral inward** toward the origin (equilibrium).
+- Damping removes energy.
+- Eventually, the system rests at \( x = 0 \), \( v = 0 \).
+
+---
+
+### Driven Damped Oscillator
+
+**Equation:**
+$$
+m\frac{d^2x}{dt^2} + c\frac{dx}{dt} + kx = F_0\cos(\omega t)
+$$
+
+**Phase Diagram:**
+- **Limit cycle** forms when the driving force balances damping.
+- Not closed like SHM, but repeats periodically after transients.
+
+---
+
+### Pendulum Phase Diagram
+
+**Equation:**
+$$
+\frac{d^2\theta}{dt^2} + \frac{g}{L}\sin(\theta) = 0
+$$
+
+**Phase Space:**
+- For small angles: Elliptical orbits (like SHM)
+- For large energy: **Looping orbits** — full rotations
+- Shows regions of oscillation vs rotation
+
+---
+
+### Why Use Phase Diagrams?
+
+- Visualize stability
+- Understand energy and damping effects
+- Detect chaos (especially in nonlinear systems)
+
+---
+
+### Example Phase Diagram (Code-based Option)
+
+You can simulate phase portraits using Python and Matplotlib. Here’s a Python snippet:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Phase diagram for simple harmonic oscillator
+x = np.linspace(-2, 2, 20)
+v = np.linspace(-2, 2, 20)
+X, V = np.meshgrid(x, v)
+dxdt = V
+dvdt = -X  # assuming m = k = 1
+
+plt.quiver(X, V, dxdt, dvdt, color='teal')
+plt.title("Phase Diagram: Simple Harmonic Oscillator")
+plt.xlabel("Position (x)")
+plt.ylabel("Velocity (v)")
+plt.grid()
+plt.show()
+
+![alt text](image-6.png)
+
+## 8. Limitations and Future Work
 Ideal models ignore:
 - Air resistance, wind, and varying gravity.
 - Complex real-world projectile behaviors.
@@ -106,7 +281,7 @@ Future work:
 - Implementing drag force models.
 - Accounting for varying launch and landing heights.
 
-## 8. Conclusion
+## 9. Conclusion
 Projectile range depends on launch angle, velocity, and gravitational acceleration. The ideal maximum range occurs at 45°, but real-world conditions modify this. Computational simulations enhance understanding, and further research can incorporate more realistic factors
 
 
