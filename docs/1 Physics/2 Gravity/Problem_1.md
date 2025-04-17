@@ -71,7 +71,7 @@ This confirms the universal validity of Kepler’s law.
 
 ## 5. Computational Simulation
 To visualize this relationship, we implement a Python simulation using **Matplotlib** and **NumPy**. The program calculates and plots the orbit of a body based on initial conditions.
-![alt text][def]
+![alt text](image-1.png)
 <a href="https://colab.research.google.com/drive/1yb2VWrmBY-BJRZOSQ39ojd1j9c9MpJkr?usp=sharing" target="_blank">Colab</a>
 
 This graph confirms the linear relationship between \( T^2 \) and \( r^3 \), validating Kepler’s law computationally.

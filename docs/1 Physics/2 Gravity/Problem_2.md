@@ -20,6 +20,78 @@ This report aims to explain the significance of these velocities, analyze their 
   - \( M \) is the mass of the celestial body,
   - \( R \) is the radius from the center of the body to the object.
 
+# Derivation of Gravitational Force
+
+## Newton's Law of Universal Gravitation
+
+Newton's Law of Universal Gravitation states that the gravitational force \( F \) between two masses is:
+
+\[
+F = G \frac{m_1 m_2}{r^2}
+\]
+
+Where:
+- \( F \) is the gravitational force between two masses,
+- \( G \) is the gravitational constant (\(6.67430 \times 10^{-11} \, \text{Nm}^2/\text{kg}^2\)),
+- \( m_1 \) and \( m_2 \) are the two masses,
+- \( r \) is the distance between the centers of the two masses.
+
+## Concept of Gravitational Force
+
+The gravitational force is directly proportional to the product of the masses and inversely proportional to the square of the distance between them.
+
+## Gravitational Force Near Earth's Surface
+
+When we are near the surface of the Earth, the gravitational force acting on an object of mass \( m \) can be simplified to:
+
+\[
+F = m g
+\]
+
+Where:
+- \( F \) is the weight of the object,
+- \( m \) is the mass of the object,
+- \( g \) is the acceleration due to gravity near Earth's surface (\(9.81 \, \text{m/s}^2\)).
+
+### Deriving the Expression for \( g \)
+
+For an object near Earth's surface, the gravitational force between Earth (mass \( M \)) and the object of mass \( m \) is given by:
+
+\[
+F = G \frac{M m}{R^2}
+\]
+
+Where:
+- \( R \) is the radius of the Earth.
+
+Since the weight of the object is \( F = m g \), equate the two expressions for force:
+
+\[
+m g = G \frac{M m}{R^2}
+\]
+
+Now, cancel the mass \( m \) from both sides:
+
+\[
+g = G \frac{M}{R^2}
+\]
+
+This is the acceleration due to gravity at the surface of the Earth.
+
+## Final Formula for Gravity Near Earth's Surface
+
+The acceleration due to gravity near the Earth's surface is:
+
+\[
+g = G \frac{M}{R^2}
+\]
+
+Where:
+- \( G \) is the gravitational constant,
+- \( M \) is the mass of the Earth,
+- \( R \) is the radius of the Earth.
+
+
 ### **Second Cosmic Velocity (Escape Velocity)**
 - The second cosmic velocity (​$v_2$​) is the minimum speed needed to break free from a celestial body's gravitational pull without further propulsion.
 - Derived from energy conservation (where kinetic energy equals gravitational potential energy at infinity):
