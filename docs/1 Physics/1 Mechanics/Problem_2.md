@@ -97,7 +97,7 @@ plt.legend()
 plt.grid()
 plt.show()
 ```
-<a href="https://colab.research.google.com/drive/1ED2QsXcYoWrW_lvZAib4xwUUv1mC7xLr?usp=sharing" target="_blank">Colab</a>
+![alt text](image-7.png)
 
 ## **Advanced Visualization Techniques**  
 
