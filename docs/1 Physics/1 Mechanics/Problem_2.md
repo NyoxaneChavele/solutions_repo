@@ -198,6 +198,72 @@ plt.show()
 ```
 ![alt text](image-8.png)
 
+##  Results and Discussion
+
+###  Graphical Analysis of the Forced, Damped Pendulum
+
+A **forced, damped pendulum** obeys the nonlinear second-order differential equation:
+
+\[
+\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2 \sin(\theta) = A \cos(\omega_d t)
+\]
+
+Where:
+
+- \( \theta \): angular displacement  
+- \( b \): damping coefficient  
+- \( \omega_0 = \sqrt{\frac{g}{L}} \): natural frequency of the pendulum  
+- \( A \): amplitude of the external forcing  
+- \( \omega_d \): driving frequency  
+
+---
+
+###  Poincaré Sections and Dynamics
+
+To visualize the system’s long-term behavior, we implemented a **Poincaré section** in Python. This method samples the system state \((\theta, \omega)\) once every driving period \(T = \frac{2\pi}{\omega_d}\). 
+
+#### Observations:
+
+- **Regular Oscillations**  
+  For **low forcing amplitude** (e.g., \(A \leq 1.0\)), the Poincaré section displays closed loops. This implies **periodic or quasi-periodic motion**, where the pendulum oscillates back and forth smoothly without becoming chaotic.
+
+- **Transition to Chaos**  
+  As the forcing amplitude increases (especially with low damping), the pattern in the Poincaré section becomes more complex, eventually appearing **scattered**. This indicates **chaotic motion**, where small changes in initial conditions lead to drastically different trajectories.
+
+---
+
+###  Resonance Behavior
+
+**Resonance** occurs when the external driving frequency \( \omega_d \) closely matches the system’s natural frequency \( \omega_0 \). In this case, the system absorbs energy efficiently, leading to a large response.
+
+\[
+\omega_d \approx \omega_0 \quad \Rightarrow \quad \text{Resonance}
+\]
+
+For **small damping \( b \ll 1 \)** and near resonance:
+
+\[
+\theta(t) \propto \frac{A}{b}
+\]
+
+This shows that the amplitude of the oscillations grows **inversely with damping**. In the limit of no damping, the amplitude could grow without bound — a theoretical resonance catastrophe.
+
+#### From Simulation:
+
+- When \( b = 0.5 \) and \( A = 1.2 \), the pendulum exhibits **non-periodic motion**, evident from the scattered Poincaré points.
+- At **lower amplitudes or higher damping**, the pattern becomes regular again, confirming the **sensitivity to damping and forcing**.
+
+---
+
+### Conclusion
+
+The combination of numerical simulation and Poincaré sections offers clear insights into the behavior of a forced, damped pendulum:
+
+- Low forcing and higher damping → **regular, predictable oscillations**  
+- High forcing and low damping → **chaotic, unpredictable motion**  
+- **Resonance** causes significantly amplified oscillations, particularly under weak damping
+
+These findings not only validate theoretical expectations but also highlight the rich complexity of nonlinear dynamical systems.
 
 ## **Conclusion**  
 
