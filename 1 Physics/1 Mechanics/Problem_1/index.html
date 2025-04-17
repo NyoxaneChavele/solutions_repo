@@ -469,22 +469,7 @@ $$</p>
 <li>Detect chaos (especially in nonlinear systems)</li>
 </ul>
 <hr/>
-<h3 id="example-phase-diagram-code-based-option">Example Phase Diagram (Code-based Option)</h3>
-<p>You can simulate phase portraits using Python and Matplotlib. Here’s a Python snippet:</p>
-<p>import numpy as np
-import matplotlib.pyplot as plt</p>
-<h1 id="phase-diagram-for-simple-harmonic-oscillator">Phase diagram for simple harmonic oscillator</h1>
-<p>x = np.linspace(-2, 2, 20)
-v = np.linspace(-2, 2, 20)
-X, V = np.meshgrid(x, v)
-dxdt = V
-dvdt = -X  # assuming m = k = 1</p>
-<p>plt.quiver(X, V, dxdt, dvdt, color='teal')
-plt.title("Phase Diagram: Simple Harmonic Oscillator")
-plt.xlabel("Position (x)")
-plt.ylabel("Velocity (v)")
-plt.grid()
-plt.show()</p>
+<h3 id="example-phase-diagram">Example Phase Diagram</h3>
 <p><img alt="alt text" src="../image-6.png"/></p>
 <h2 id="8-limitations-and-future-work">8. Limitations and Future Work</h2>
 <p>Ideal models ignore:
