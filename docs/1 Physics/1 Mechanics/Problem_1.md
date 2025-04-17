@@ -252,16 +252,15 @@ $$
 
 You can simulate phase portraits using Python and Matplotlib. Here’s a Python snippet:
 
-```python
 import numpy as np
 import matplotlib.pyplot as plt
 
- Phase diagram for simple harmonic oscillator
+# Phase diagram for simple harmonic oscillator
 x = np.linspace(-2, 2, 20)
 v = np.linspace(-2, 2, 20)
 X, V = np.meshgrid(x, v)
 dxdt = V
-dvdt = -X   assuming m = k = 1
+dvdt = -X  # assuming m = k = 1
 
 plt.quiver(X, V, dxdt, dvdt, color='teal')
 plt.title("Phase Diagram: Simple Harmonic Oscillator")
@@ -269,6 +268,7 @@ plt.xlabel("Position (x)")
 plt.ylabel("Velocity (v)")
 plt.grid()
 plt.show()
+
 
 ![alt text](image-6.png)
 
