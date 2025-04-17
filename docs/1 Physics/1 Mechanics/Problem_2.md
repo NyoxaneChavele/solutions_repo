@@ -101,6 +101,60 @@ plt.show()
 
 ## **Advanced Visualization Techniques**  
 
+### **Poincaré section**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+g = 9.81       # gravity
+L = 1.0        # pendulum length
+b = 0.5        # damping coefficient
+A = 1.2        # amplitude of driving force
+omega_d = 2.0  # driving frequency
+
+# Time setup
+dt = 0.01
+T = 2 * np.pi / omega_d  # driving period
+steps = 50000
+times = np.arange(0, steps*dt, dt)
+
+# Initial conditions
+theta = 0.2
+omega = 0.0
+
+# Lists to store Poincaré section points
+poincare_theta = []
+poincare_omega = []
+
+# Integration loop using Euler method
+for i, t in enumerate(times):
+    # Equations of motion (nonlinear pendulum with driving force)
+    omega_dot = -b*omega - (g/L)*np.sin(theta) + A*np.cos(omega_d * t)
+    theta += omega * dt
+    omega += omega_dot * dt
+    
+    # Keep theta within [-π, π] for clarity
+    theta = (theta + np.pi) % (2 * np.pi) - np.pi
+
+    # Record once per driving period
+    if abs((t % T) - 0) < dt:
+        poincare_theta.append(theta)
+        poincare_omega.append(omega)
+
+# Plotting the Poincaré section
+plt.figure(figsize=(8, 6))
+plt.scatter(poincare_theta, poincare_omega, s=1, color='darkred')
+plt.title("Poincaré Section: Driven Damped Pendulum")
+plt.xlabel("Angle θ (rad)")
+plt.ylabel("Angular Velocity ω (rad/s)")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+![alt text](image-9.png)
+
 ### **Phase Portraits**  
 Plotting **angular velocity vs. displacement** to observe stable and chaotic regimes.  
 
@@ -142,7 +196,7 @@ plt.legend()
 plt.grid()
 plt.show()
 ```
-<a href="https://colab.research.google.com/drive/1Cx_G-OY7GYAVLQc-2ec-hNH3yvQdIdBa?usp=sharing" target="_blank">Colab</a>
+![alt text](image-8.png)
 
 
 ## **Conclusion**  
